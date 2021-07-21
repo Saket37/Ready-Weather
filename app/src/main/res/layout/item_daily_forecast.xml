@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/dailyDateTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Sat, June 25" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/showCV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:animateLayoutChanges="true"
+        android:padding="5dp"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="10dp"
+        app:cardPreventCornerOverlap="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dailyDateTv">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/maxTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:drawableStart="@drawable/ic_baseline_arrow_upward_24"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="30.7 C" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/minTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:drawableStart="@drawable/ic_baseline_arrow_downward_24"
+                android:textSize="16sp"
+                app:layout_constraintStart_toEndOf="@+id/maxTV"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="25 C" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/dailyWeatherTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/maxTV"
+                tools:text="ThunderStorm" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/dailySunriseTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="5:35 AM" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/dailySunsetTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="8dp"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/dailySunriseTV"
+                tools:text="6:14 PM" />
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/dailyIconIV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintEnd_toStartOf="@id/dailySunriseTV"
+                app:layout_constraintTop_toTopOf="@id/dailySunriseTV"
+                app:layout_constraintBottom_toBottomOf="@id/dailySunsetTV"
+                tools:srcCompat="@drawable/ic_sun" />
+
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/hiddenCV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="10dp"
+                android:animateLayoutChanges="true"
+                android:padding="5dp"
+                android:paddingBottom="10dp"
+                android:visibility="gone"
+                app:cardElevation="2dp"
+                app:cardPreventCornerOverlap="true"
+                app:contentPadding="2dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/dailyWeatherTV"
+                tools:visibility="visible">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="5dp"
+                    android:padding="2dp">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/dailyHumidityTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/humidity_string"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/dailyDisplayHumidityTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        app:layout_constraintStart_toStartOf="@+id/dailyDisplayPressureTV"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="79 %" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/dailyPressureTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/pressure_string"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/dailyHumidityTV" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/dailyDisplayPressureTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        app:layout_constraintStart_toStartOf="@+id/dailyDisplayWindTV"
+                        app:layout_constraintTop_toBottomOf="@id/dailyDisplayHumidityTV"
+                        tools:text="1 atm" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/dailyWindTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/wind_string"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/dailyPressureTV" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/dailyDisplayWindTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        app:layout_constraintStart_toStartOf="@+id/dailyDisplayCloudsTV"
+                        app:layout_constraintTop_toBottomOf="@id/dailyDisplayPressureTV"
+                        tools:text="2 Km/h" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/dailyCloudTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/cloud_string"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/dailyWindTv" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/dailyDisplayCloudsTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        app:layout_constraintStart_toStartOf="@+id/dailyDisplayUviTV"
+                        app:layout_constraintTop_toBottomOf="@id/dailyDisplayWindTV"
+                        tools:text="20 %" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/dailyUviTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/uvi_string"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/dailyCloudTV" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/dailyDisplayUviTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        app:layout_constraintStart_toStartOf="@+id/dailyDisplayPopTv"
+                        app:layout_constraintTop_toBottomOf="@+id/dailyDisplayCloudsTV"
+                        tools:text="0.09" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/dailyPopTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/chance_of_rain_string"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/dailyUviTV" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/dailyDisplayPopTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        app:layout_constraintStart_toStartOf="@+id/dailyDisplayRainTV"
+                        app:layout_constraintTop_toBottomOf="@+id/dailyDisplayUviTV"
+                        tools:text="30 %" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/dailyRainTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/rain_string"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/dailyPopTV" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/dailyDisplayRainTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="108dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/dailyDisplayPopTv"
+                        tools:text="6 mm" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </com.google.android.material.card.MaterialCardView>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </com.google.android.material.card.MaterialCardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

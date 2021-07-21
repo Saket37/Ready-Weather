@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/weatherFragment"
+        android:enabled="true"
+        android:icon="@drawable/weather_fragment_icon"
+        android:title="@string/weather_frag" />
+    <item
+        android:id="@+id/nextDayFragment"
+        android:enabled="true"
+        android:icon="@drawable/nextday_fragment_icon"
+        android:title="@string/next_frag" />
+    <item
+        android:id="@+id/forecastFragment"
+        android:enabled="true"
+        android:icon="@drawable/forecast_fragment_icon"
+        android:title="@string/forecast_frag" />
+</menu>

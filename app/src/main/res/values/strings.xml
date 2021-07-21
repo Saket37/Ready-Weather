@@ -1,0 +1,55 @@
+<resources>
+    <!-- App Name -->
+    <string name="app_name">Ready Weather</string>
+
+    <!--Fragment Name Start-->
+    <string name="weather_frag">Weather</string>
+    <string name="next_frag">Next Day</string>
+    <string name="forecast_frag">Forecast</string>
+    <!--Fragment Name End-->
+
+    <!--Display Result of API for Temperature Start-->
+    <string name="temp_data_string">%1$.1f \u2103</string>
+    <string name="day_temp_data_string">Day %1$.1f \u2103</string>
+    <string name="night_temp_data_string">Night %1$.1f \u2103</string>
+    <string name="feels_like_data_string">Feels like %1$.1f \u2103</string>
+    <!--Display Result of API for Temperature End-->
+
+    <!--Display Result of API for percent symbols Start-->
+    <string name="humidity_data_string">%1$.1f %%</string>
+    <string name="cloud_data_string">%1$d %%</string>
+    <string name="chance_of_rain_data_string">%1$.1f %%</string>
+    <!--Display Result of API for special symbols End-->
+
+    <!--Display Result of API for units Start-->
+    <string name="pressure_data_string">%1$d mBar</string>
+    <string name="visibility_data_string">%1$d m</string>
+    <string name="rain_data_string">%1$.1f mm</string>
+    <!--Display Result of API for units End-->
+
+    <!--Display Result of API for wind Start-->
+    <string name="wind_speed_data_string">%1$.1f Km/h</string>
+    <string name="wind_deg_data_string">%1$.1f</string>
+    <!--Display Result of API for wind End-->
+
+    <!--Display Result of API for UVI Start-->
+    <string name="low_uvi">Low, %1$.1f</string>
+    <string name="moderate_uvi">Moderate, %1$.1f</string>
+    <string name="extreme_uvi">Extreme, %1$.1f</string>
+    <!--Display Result of API for UVI End-->
+
+    <string name="forecast_date_string">Today</string>
+
+    <!---->
+    <string name="pressure_string">Pressure</string>
+    <string name="humidity_string">Humidity</string>
+    <string name="uvi_string">UVI</string>
+    <string name="visibility_string">Visibility</string>
+    <string name="cloud_string">Cloud</string>
+    <string name="windSpeed_string">WindSpeed</string>
+    <string name="wind_string">Wind</string>
+    <string name="chance_of_rain_string">Chance of Rain</string>
+    <string name="rain_string">Rain</string>
+    <!---->
+
+</resources>

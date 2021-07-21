@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/weatherFragment">
+
+    <fragment
+        android:id="@+id/weatherFragment"
+        android:name="com.example.readyweather.fragment.weather.WeatherFragment"
+        android:label="weather_fragment"
+        tools:layout="@layout/weather_fragment">
+        <action
+            android:id="@+id/action_weatherFragment_to_nextDayFragment"
+            app:destination="@id/nextDayFragment" />
+        <action
+            android:id="@+id/action_weatherFragment_to_forecastFragment"
+            app:destination="@id/forecastFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/nextDayFragment"
+        android:name="com.example.readyweather.fragment.nextday.NextDayFragment"
+        android:label="nextday_fragment"
+        tools:layout="@layout/nextday_fragment">
+        <action
+            android:id="@+id/action_nextDayFragment_to_forecastFragment"
+            app:destination="@id/forecastFragment" />
+        <action
+            android:id="@+id/action_nextDayFragment_to_weatherFragment"
+            app:destination="@id/weatherFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/forecastFragment"
+        android:name="com.example.readyweather.fragment.forecast.ForecastFragment"
+        android:label="forecast_fragment"
+        tools:layout="@layout/forecast_fragment">
+        <action
+            android:id="@+id/action_forecastFragment_to_nextDayFragment"
+            app:destination="@id/nextDayFragment" />
+        <action
+            android:id="@+id/action_forecastFragment_to_weatherFragment"
+            app:destination="@id/weatherFragment" />
+    </fragment>
+</navigation>
