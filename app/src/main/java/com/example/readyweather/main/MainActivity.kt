@@ -133,7 +133,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-
     @Throws(SecurityException::class)
     private fun requestCurrentLocation() {
         Log.d("mlsa", "Requesting Location...")
