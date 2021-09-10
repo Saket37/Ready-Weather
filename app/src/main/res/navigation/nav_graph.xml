@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/weatherFragment"
-        android:name="com.example.readyweather.fragment.weather.WeatherFragment"
+        android:name="dev.saket.readyweather.fragment.weather.WeatherFragment"
         android:label="weather_fragment"
         tools:layout="@layout/weather_fragment">
         <action
@@ -19,7 +19,7 @@
     </fragment>
     <fragment
         android:id="@+id/nextDayFragment"
-        android:name="com.example.readyweather.fragment.nextday.NextDayFragment"
+        android:name="dev.saket.readyweather.fragment.nextday.NextDayFragment"
         android:label="nextday_fragment"
         tools:layout="@layout/nextday_fragment">
         <action
@@ -31,7 +31,7 @@
     </fragment>
     <fragment
         android:id="@+id/forecastFragment"
-        android:name="com.example.readyweather.fragment.forecast.ForecastFragment"
+        android:name="dev.saket.readyweather.fragment.forecast.ForecastFragment"
         android:label="forecast_fragment"
         tools:layout="@layout/forecast_fragment">
         <action

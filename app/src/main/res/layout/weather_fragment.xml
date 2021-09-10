@@ -115,7 +115,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="24dp"
-            android:text="Sunrise"
+            android:text="@string/sunrise"
             android:textSize="22sp"
             android:visibility="gone"
             app:layout_constraintStart_toStartOf="parent"
@@ -136,7 +136,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="24dp"
-            android:text="Sunset"
+            android:text="@string/sunset"
             android:textSize="22sp"
             android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
@@ -170,7 +170,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_sun" />
+                app:srcCompat="@drawable/ic_sun"/>
 
 
         </androidx.constraintlayout.motion.widget.MotionLayout>

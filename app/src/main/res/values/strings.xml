@@ -50,6 +50,8 @@
     <string name="wind_string">Wind</string>
     <string name="chance_of_rain_string">Chance of Rain</string>
     <string name="rain_string">Rain</string>
+    <string name="sunrise">Sunrise</string>
+    <string name="sunset">Sunset</string>
     <!---->
 
 </resources>
