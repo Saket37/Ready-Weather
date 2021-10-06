@@ -51,6 +51,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
         val viewPager = binding.pager
         val tabLayout = binding.tabLayout
 
@@ -88,14 +89,16 @@ class MainActivity : AppCompatActivity() {
             Snackbar.LENGTH_INDEFINITE
         )
 
-        val layoutParams = snackbar.view.layoutParams as CoordinatorLayout.LayoutParams
+        /*val layoutParams = snackbar.view.layoutParams as CoordinatorLayout.LayoutParams
         layoutParams.anchorId = binding.tabLayout.id
-        layoutParams.anchorGravity = Gravity.TOP
-        layoutParams.gravity = Gravity.TOP
+        layoutParams.anchorGravity = Gravity.BOTTOM
+        layoutParams.gravity = Gravity.BOTTOM*/
 
         snackbar.apply()
         {
+/*
             view.layoutParams = layoutParams
+*/
             setAction("Retry") {
                 ActivityCompat.recreate(this@MainActivity)
             }

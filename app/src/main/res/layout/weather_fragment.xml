@@ -10,13 +10,13 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="600dp">
+        android:layout_height="600dp"
+        >
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/cityTV"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:textAlignment="textEnd"
             android:textSize="24sp"
