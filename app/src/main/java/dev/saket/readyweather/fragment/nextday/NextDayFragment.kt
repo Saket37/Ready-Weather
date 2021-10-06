@@ -9,6 +9,8 @@ import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import com.squareup.picasso.Picasso
+import dagger.hilt.android.AndroidEntryPoint
 import dev.saket.readyweather.R
 import dev.saket.readyweather.data.remote.Constants
 import dev.saket.readyweather.data.remote.Status
@@ -21,11 +23,9 @@ import dev.saket.readyweather.main.MainViewModel
 import dev.saket.readyweather.utils.CapitalizeLetterHelper.capitalizeWords
 import dev.saket.readyweather.utils.DateFormat
 import dev.saket.readyweather.utils.DateHelper.unixSecondsToText
-import com.squareup.picasso.Picasso
-import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 import java.util.*
 
+@OptIn(kotlinx.coroutines.ExperimentalCoroutinesApi::class)
 @AndroidEntryPoint
 class NextDayFragment : Fragment() {
     private var _binding: NextdayFragmentBinding? = null
@@ -36,19 +36,17 @@ class NextDayFragment : Fragment() {
     lateinit var hourlyAdapter: NextDayFragmentAdapter
     lateinit var progressBar: ProgressBar
 
-    @ExperimentalCoroutinesApi
     private val viewModel: MainViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View {
         _binding = NextdayFragmentBinding.inflate(inflater, container, false)
         _bottomSheetBinding = binding.nextDayBottomSheet
         return binding.root
     }
 
-    @ExperimentalCoroutinesApi
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         progressBar = binding.progressBar
@@ -123,7 +121,7 @@ class NextDayFragment : Fragment() {
                 }
 
                 val weatherIconCode = daily[1].weather[0].icon
-                Picasso.with(binding.root.context)
+                Picasso.get()
                     .load(Constants.IMAGE_URL_BASE + weatherIconCode + Constants.IMAGE_FORMAT)
                     .into(binding.nextDayWeatherIV)
 

@@ -1,5 +1,6 @@
 package dev.saket.readyweather.fragment.forecast
 
+import android.icu.number.NumberRangeFormatter.with
 import android.transition.TransitionManager
 import android.view.View
 import android.widget.Toast
@@ -29,8 +30,7 @@ class ForecastFragmentHolder(private val dailyBinding: ItemDailyForecastBinding)
                 dailyWeatherTV.text = daily.weather[0].main
 
                 val dailyIconCode = daily.weather[0].icon
-
-                Picasso.with(dailyBinding.root.context)
+                Picasso.get()
                     .load(Constants.IMAGE_URL_BASE + dailyIconCode + Constants.IMAGE_FORMAT)
                     .into(dailyIconIV)
             } catch (e: ArrayIndexOutOfBoundsException) {

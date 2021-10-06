@@ -19,7 +19,7 @@ class NextDayFragmentHolder(private val binding: ItemHourlySheetBinding) :
 
             val iconCodeRV = hourly.weather[0].icon
 
-            Picasso.with(root.context)
+            Picasso.get()
                 .load(Constants.IMAGE_URL_BASE + iconCodeRV + Constants.IMAGE_FORMAT)
                 .into(weatherHourlyIV)
         }

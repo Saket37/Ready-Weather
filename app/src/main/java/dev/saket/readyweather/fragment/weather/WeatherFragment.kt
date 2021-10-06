@@ -28,7 +28,7 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import java.time.Instant
 
 @AndroidEntryPoint
-@ExperimentalCoroutinesApi
+@OptIn(kotlinx.coroutines.ExperimentalCoroutinesApi::class)
 class WeatherFragment : Fragment() {
 
     private var _binding: WeatherFragmentBinding? = null
@@ -146,7 +146,7 @@ class WeatherFragment : Fragment() {
         try {
             binding.weatherNameTV.text = current.weather[0].main
             val iconCode = current.weather[0].icon
-            Picasso.with(requireContext())
+            Picasso.get()
                 .load(IMAGE_URL_BASE + iconCode + IMAGE_FORMAT)
                 .into(binding.weatherIV)
         } catch (e: ArrayIndexOutOfBoundsException) {

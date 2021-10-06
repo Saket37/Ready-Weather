@@ -14,15 +14,15 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.app.ActivityCompat
-import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.setupWithNavController
-import dev.saket.readyweather.databinding.ActivityMainBinding
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.google.android.material.snackbar.Snackbar
+import com.google.android.material.tabs.TabLayoutMediator
 import dagger.hilt.android.AndroidEntryPoint
-import dev.saket.readyweather.R
+import dev.saket.readyweather.databinding.ActivityMainBinding
+import dev.saket.readyweather.fragment.ViewPagerAdapter
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+
 
 @ExperimentalCoroutinesApi
 @AndroidEntryPoint
@@ -39,15 +39,44 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var snackbar: Snackbar
 
+    private val fragmentArray = arrayOf(
+        "Weather",
+        "Next Day",
+        "Forecast"
+    )
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        (supportFragmentManager.findFragmentById(R.id.base_fragment) as NavHostFragment).apply {
-            binding.bottomNavigation.setupWithNavController(this.navController)
-        }
+        val viewPager = binding.pager
+        val tabLayout = binding.tabLayout
+
+        val adapter = ViewPagerAdapter(supportFragmentManager, lifecycle)
+        viewPager.adapter = adapter
+
+        TabLayoutMediator(tabLayout, viewPager) { tab, position ->
+            tab.text = fragmentArray[position]
+        }.attach()
+
+
+        // Removed for add Tabbed Layout with ViewPager.
+        /* binding.tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+
+             override fun onTabSelected(tab: TabLayout.Tab?) {
+                 // Handle tab select
+             }
+
+             override fun onTabReselected(tab: TabLayout.Tab?) {
+                 // Handle tab reselect
+             }
+
+             override fun onTabUnselected(tab: TabLayout.Tab?) {
+                 // Handle tab unselect
+             }
+         })*/
 
         connectivityManager =
             getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
@@ -60,11 +89,12 @@ class MainActivity : AppCompatActivity() {
         )
 
         val layoutParams = snackbar.view.layoutParams as CoordinatorLayout.LayoutParams
-        layoutParams.anchorId = binding.bottomNavigation.id
+        layoutParams.anchorId = binding.tabLayout.id
         layoutParams.anchorGravity = Gravity.TOP
         layoutParams.gravity = Gravity.TOP
 
-        snackbar.apply {
+        snackbar.apply()
+        {
             view.layoutParams = layoutParams
             setAction("Retry") {
                 ActivityCompat.recreate(this@MainActivity)
@@ -76,25 +106,23 @@ class MainActivity : AppCompatActivity() {
         Log.d("dlo", "InternetPermissions")
         requestCurrentLocation()
 
-        mainViewModel.networkStatus.observe(this, {
-            Log.d("ObservingNetworkStatus", it.toString())
-            if (it) {
-                hideSnackBar()
-                requestCurrentLocation()
-            } else {
-                showSnackBar()
-            }
-        })
+        mainViewModel.networkStatus.observe(this,
+            {
+                Log.d("ObservingNetworkStatus", it.toString())
+                if (it) {
+                    hideSnackBar()
+                    requestCurrentLocation()
+                } else {
+                    showSnackBar()
+                }
+            })
 
 
-// TODO Weather Icon Pack by Ladalle CS
-// TODO <a href="https://iconscout.com/icon-pack/weather-190" target="_blank">Weather Icon Pack</a> by <a href="https://iconscout.com/contributors/ladalle-cs" target="_blank">Ladalle CS</a>
+        // TODO Weather Icon Pack by Ladalle CS
+        // TODO <a href="https://iconscout.com/icon-pack/weather-190" target="_blank">Weather Icon Pack</a> by <a href="https://iconscout.com/contributors/ladalle-cs" target="_blank">Ladalle CS</a>
 
         // TODO Download Calendar Icon by Omar Safaa on Iconscout
         // TODO    <a href="https://iconscout.com/icons/next-date" target="_blank">Next Date Icon</a> by <a href="https://iconscout.com/contributors/omarsafaa" target="_blank">Omar Safaa</a>
-// set app permissions
-
-
     }
 
     override fun onResume() {
@@ -111,7 +139,7 @@ class MainActivity : AppCompatActivity() {
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<out String>,
-        grantResults: IntArray
+        grantResults: IntArray,
     ) {
         when (requestCode) {
             1 -> {

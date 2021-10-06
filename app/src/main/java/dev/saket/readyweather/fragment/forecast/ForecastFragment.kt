@@ -18,7 +18,7 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import javax.inject.Inject
 
 @AndroidEntryPoint
-@ExperimentalCoroutinesApi
+@OptIn(kotlinx.coroutines.ExperimentalCoroutinesApi::class)
 class ForecastFragment : Fragment() {
     private var _binding: ForecastFragmentBinding? = null
     private val binding get() = _binding!!
